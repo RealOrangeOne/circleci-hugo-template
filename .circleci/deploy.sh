@@ -15,9 +15,12 @@ git clone -q --branch=gh-pages $CIRCLE_REPOSITORY_URL $DEPLOY_DIR
 cd $DEPLOY_DIR
 rsync -ar --delete ../public/* .
 
-git diff | cat
 git add -f .
-git diff --quiet || git commit -m "Deploy build $CIRCLE_BUILD_NUM\n[ci skip]"
+
+unset -e
+git commit -m "Deploy build $CIRCLE_BUILD_NUM\n[ci skip]"
+set -e
+
 git push -f
 
 echo "Deployment completed."

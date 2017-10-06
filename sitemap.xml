@@ -3,22 +3,22 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>http://example.org/categories/</loc>
+    <loc>https://realorangeone.github.io/circleci-hugo-template/categories/</loc>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://example.org/</loc>
+    <loc>https://realorangeone.github.io/circleci-hugo-template/</loc>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://example.org/tags/</loc>
+    <loc>https://realorangeone.github.io/circleci-hugo-template/tags/</loc>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://example.org/test/</loc>
+    <loc>https://realorangeone.github.io/circleci-hugo-template/test/</loc>
   </url>
   
 </urlset>

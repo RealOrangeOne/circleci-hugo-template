@@ -2,20 +2,20 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Hugo Test Site</title>
-    <link>http://example.org/</link>
+    <link>https://realorangeone.github.io/circleci-hugo-template/</link>
     <description>Recent content on Hugo Test Site</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-gb</language>
     
-	<atom:link href="http://example.org/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://realorangeone.github.io/circleci-hugo-template/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Test</title>
-      <link>http://example.org/test/</link>
+      <link>https://realorangeone.github.io/circleci-hugo-template/test/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>http://example.org/test/</guid>
+      <guid>https://realorangeone.github.io/circleci-hugo-template/test/</guid>
       <description>Test content for site.
 Go here! https://github.com/RealOrangeOne/circleci-hugo-template</description>
     </item>

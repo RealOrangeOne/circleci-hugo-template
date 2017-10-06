@@ -11,6 +11,9 @@ then
     exit 1;
 fi
 
+git config --global user.email $(git --no-pager show -s --format='%ae' HEAD)
+git config --global user.name $CIRCLE_USERNAME
+
 echo "Deleting old publication"
 rm -rf public
 mkdir public
@@ -27,4 +30,4 @@ echo "Generating site"
 hugo --verbose
 
 echo "Updating gh-pages branch"
-cd public && git add --all && git commit -m "Publishing to gh-pages (publish.sh)" && git push
+cd public && git add --all && git commit -m "Publishing build $CIRCLE_BUILD_NUM [ci-skip]" && git push

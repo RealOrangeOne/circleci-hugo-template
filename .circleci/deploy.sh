@@ -15,7 +15,7 @@ cd $DEPLOY_DIR
 rsync -ar --delete ../public/* .
 
 git add -f .
-git commit -m "Deploy build $CIRCLE_BUILD_NUM\n[ci skip]"
+git diff --exit-code || git commit -m "Deploy build $CIRCLE_BUILD_NUM\n[ci skip]"
 git push -f
 
 echo "Deployment completed."

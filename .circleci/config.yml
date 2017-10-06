@@ -4,6 +4,7 @@ jobs:
     build:
         docker:
             - image: circleci/node:6.10
+        working_directory: ~/circleci-hugo-template
         steps:
             - checkout
             - run:

@@ -6,6 +6,9 @@ jobs:
             - image: circleci/node:6.10
         working_directory: ~/circleci-hugo-template
         steps:
+            - add_ssh_keys:
+                fingerprints:
+                    - "a8:d7:92:82:90:5f:d2:2b:53:f8:10:72:37:01:08:3c"
             - checkout
             - run:
                 name: Checkout submodule

@@ -17,7 +17,7 @@ jobs:
                 name: Install Hugo
                 command: wget https://github.com/gohugoio/hugo/releases/download/v0.29/hugo_0.29_Linux-64bit.deb -O /tmp/hugo.deb && sudo dpkg -i /tmp/hugo.deb
             - restore_cache:
-                key: {{ checksum "package.json" }}
+                key: node-{{ checksum "package.json" }}
             - run:
                 name: Install dependencies
                 command: npm install
@@ -28,9 +28,9 @@ jobs:
                 name: Install deployment dependencies
                 command: sudo apt install rsync
             - save_cache:
-                key: {{ checksum "package.json" }}
+                key: node-{{ checksum "package.json" }}
                 paths:
-                  - node_modules
+                    - node_modules
             - deploy:
                 name: Deploy to Github Pages
                 command: ./.circleci/deploy.sh

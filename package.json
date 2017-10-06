@@ -2,8 +2,7 @@
   "name": "circleci-hugo-template",
   "version": "1.0.0",
   "description": "",
-  "scripts": {
-  },
+  "scripts": {},
   "repository": {
     "type": "git",
     "url": "git+https://github.com/RealOrangeOne/circleci-hugo-template.git"
@@ -13,5 +12,8 @@
   "bugs": {
     "url": "https://github.com/RealOrangeOne/circleci-hugo-template/issues"
   },
-  "homepage": "https://github.com/RealOrangeOne/circleci-hugo-template#readme"
+  "homepage": "https://github.com/RealOrangeOne/circleci-hugo-template#readme",
+  "devDependencies": {
+    "node-sass": "4.5.3"
+  }
 }

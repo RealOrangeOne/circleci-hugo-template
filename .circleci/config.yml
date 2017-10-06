@@ -24,5 +24,6 @@ jobs:
                 name: Build site
                 command: hugo --verbose
             - deploy:
+                name: Deploy
                 command: ./.circleci/deploy.sh
 

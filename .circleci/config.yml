@@ -16,14 +16,16 @@ jobs:
             - run:
                 name: Install Hugo
                 command: wget https://github.com/gohugoio/hugo/releases/download/v0.29/hugo_0.29_Linux-64bit.deb -O /tmp/hugo.deb && sudo dpkg -i /tmp/hugo.deb
-            - run: npm install
+            - run:
+                name: Install Dependencies
+                command: npm install
             - run:
                 name: Build site
-                command: hugo --verbose
+                command: ./scripts/build.sh
             - run:
                 name: Install Deployment Dependencies
                 command: sudo apt install rsync
             - deploy:
-                name: Deploy
+                name: Deploy to Github Pages
                 command: ./.circleci/deploy.sh
 

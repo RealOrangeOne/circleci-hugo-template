@@ -1,33 +1,21 @@
+#!/usr/bin/env bash
 
-#!/bin/sh
-
-DIR=$(dirname "$0")
-
-cd $DIR/..
-
-if [[ $(git status -s) ]]
-then
-    echo "The working directory is dirty. Please commit any pending changes."
-    exit 1;
-fi
+DEPLOY_DIR=deploy
 
 git config --global user.email $(git --no-pager show -s --format='%ae' HEAD)
 git config --global user.name $CIRCLE_USERNAME
 
-echo "Deleting old publication"
-rm -rf public
-mkdir public
-git worktree prune
-rm -rf .git/worktrees/public/
+echo -e "Starting deployment to Github Pages\n"
+# Using token clone gh-pages branch
+git clone --quiet --branch=gh-pages $CIRCLE_REPOSITORY_URL $DEPLOY_DIR
 
-echo "Checking out gh-pages branch into public"
-git worktree add -B gh-pages public origin/gh-pages
+# Go into directory and copy data we're interested in to that directory
+cd $DEPLOY_DIR
+rsync -rv --exclude=.git ../public/* .
 
-echo "Removing existing files"
-rm -rf public/*
+# Add, commit and push files
+git add -f .
+git commit -m "Deploy build $CIRCLE_BUILD_NUM [ci-skip]"
+git push -fq origin gh-pages
 
-echo "Generating site"
-hugo --verbose
-
-echo "Updating gh-pages branch"
-cd public && git add --all && git commit -m "Publishing build $CIRCLE_BUILD_NUM [ci-skip]" && git push
+echo -e "Deployment completed.\n"

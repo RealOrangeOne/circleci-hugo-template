@@ -15,7 +15,7 @@ git clone -q --branch=gh-pages $CIRCLE_REPOSITORY_URL $DEPLOY_DIR
 cd $DEPLOY_DIR
 rsync -ar --delete ../public/* .
 
-git diff
+git diff | cat
 git add -f .
 git diff --exit-code || git commit -m "Deploy build $CIRCLE_BUILD_NUM\n[ci skip]"
 git push -f

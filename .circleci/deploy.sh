@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+set -e
+
 DEPLOY_DIR=deploy
 
 git config --global user.email $(git --no-pager show -s --format='%ae' HEAD)

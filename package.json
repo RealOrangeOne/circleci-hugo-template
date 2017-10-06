@@ -14,6 +14,7 @@
   },
   "homepage": "https://github.com/RealOrangeOne/circleci-hugo-template#readme",
   "devDependencies": {
+    "browserify": "14.4.0",
     "node-sass": "4.5.3"
   }
 }

@@ -13,7 +13,7 @@ git clone --branch=gh-pages $CIRCLE_REPOSITORY_URL $DEPLOY_DIR
 
 # Go into directory and copy data we're interested in to that directory
 cd $DEPLOY_DIR
-rsync -rv --exclude=.git ../public/* .
+rsync -ar --delete ../public/* .
 
 # Add, commit and push files
 git add -f .

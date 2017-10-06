@@ -8,6 +8,9 @@ jobs:
         steps:
             - checkout
             - run:
+                name: Checkout submodule
+                command: git submodule sync && git submodule update --init
+            - run:
                 name: Update Dependencies
                 command: sudo apt update && sudo apt install rsync
             - run:
